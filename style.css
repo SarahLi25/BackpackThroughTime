@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+body {
+  margin: 0;
+  padding: 30px;
+  font-family: 'MedievalSharp', cursive;
+  background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+  color: #4b0082;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #ff69b4;
+}
+
+.section {
+  display: none;
+}
+
+.visible {
+  display: block;
+  animation: fadeIn 0.6s ease-out;
+}
+
+p {
+  font-size: 1.2rem;
+  margin: 15px;
+}
+
+button {
+  margin: 10px;
+  padding: 12px 24px;
+  background-color: #ff69b4;
+  border: 2px solid #ff1493;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+img {
+  width: 280px;
+  max-width: 90%;
+  border-radius: 15px;
+  box-shadow: 0 0 12px #d87093;
+  margin: 20px auto;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
