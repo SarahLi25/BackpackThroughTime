@@ -1,4 +1,4 @@
-/* Root color variables for easy theme adjustments */
+/* colors hex for later Youtuve vid*/
 :root {
   --blue: #2e86de;
   --yellow: #f5c518;
@@ -44,7 +44,7 @@ h1, h2 {
   color: var(--blue);
 }
 
-/* Item buttons - smaller, neat spacing */
+/* Item buttons - small with neat spacing */
 .item-btn {
   font-size: 1rem;
   margin: 0.5rem 0.7rem;
@@ -71,17 +71,17 @@ h1, h2 {
   width: 100%;
   max-width: 420px;
   border-radius: 14px;
-  overflow: hidden;
+  overflow:hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 #sceneImage {
-  width: 100%;
+  width: 300px;
   display: block;
   border-radius: 14px;
 }
 
-/* Scene text with some padding */
+/* Scene text, add paddding later */
 #sceneText {
   min-height: 4.5rem; /* To keep space steady during typing */
   font-size: 1.1rem;
@@ -97,7 +97,7 @@ h1, h2 {
   flex-wrap: wrap;
 }
 
-/* Choice buttons style same as item buttons but smaller */
+/* smaller than other item buttons*/
 .choice-btn {
   font-size: 0.95rem;
   margin: 0.4rem 0.7rem;
@@ -149,7 +149,7 @@ h1, h2 {
   display: none;
 }
 
-/* Fade in keyframes */
+/* Fade start in keyframes */
 @keyframes fadeIn {
   to {
     opacity: 1;
