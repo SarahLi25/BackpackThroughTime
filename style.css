@@ -1,58 +1,257 @@
-@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+/* Root color variables for easy theme adjustments */
+:root {
+  --blue: #2e86de;
+  --yellow: #f5c518;
+  --orange: #f39c12;
+  --green: #27ae60;
 
+  --bg-light: #f9f9f9;
+  --bg-dark: #121212;
+  --text-light: #333;
+  --text-dark: #ddd;
+}
+
+/* Reset and base styles */
 body {
   margin: 0;
-  padding: 30px;
-  font-family: 'MedievalSharp', cursive;
-  background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
-  color: #4b0082;
+  font-family: 'Fredoka', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom right, var(--yellow), var(--blue));
+  transition: background 0.3s ease, color 0.3s ease;
+  color: var(--text-light);
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  max-width: 600px;
+  width: 100%;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-h1 {
-  font-size: 3rem;
-  color: #ff69b4;
+/* Headings */
+h1, h2 {
+  margin: 0 0 1rem 0;
+  font-weight: 700;
+  color: var(--blue);
 }
 
-.section {
+/* Item buttons - smaller, neat spacing */
+.item-btn {
+  font-size: 1rem;
+  margin: 0.5rem 0.7rem;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.25s ease, background-color 0.3s ease;
+  color: white;
+  background: var(--blue);
+  box-shadow: 0 4px 8px rgba(46, 134, 222, 0.4);
+}
+
+.item-btn:hover {
+  transform: scale(1.1);
+  background: var(--green);
+  box-shadow: 0 6px 12px rgba(39, 174, 96, 0.6);
+}
+
+/* Image container */
+#imageContainer {
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+#sceneImage {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+}
+
+/* Scene text with some padding */
+#sceneText {
+  min-height: 4.5rem; /* To keep space steady during typing */
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 1rem 0;
+  color: var(--text-light);
+}
+
+/* Choices container below text */
+#choiceButtons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Choice buttons style same as item buttons but smaller */
+.choice-btn {
+  font-size: 0.95rem;
+  margin: 0.4rem 0.7rem;
+  padding: 0.55rem 1.3rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  background: var(--orange);
+  color: white;
+  box-shadow: 0 4px 10px rgba(243, 156, 18, 0.5);
+  transition: transform 0.25s ease, background-color 0.3s ease;
+}
+
+.choice-btn:hover {
+  transform: scale(1.1);
+  background: var(--green);
+  box-shadow: 0 6px 14px rgba(39, 174, 96, 0.7);
+}
+
+/* Theme toggle button */
+#themeToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--blue);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(46, 134, 222, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+#themeToggle:hover {
+  background-color: var(--green);
+  box-shadow: 0 6px 14px rgba(39, 174, 96, 0.8);
+}
+
+/* Fade in animation for story section */
+#storySection {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+.hidden {
   display: none;
 }
 
-.visible {
-  display: block;
-  animation: fadeIn 0.6s ease-out;
+/* Fade in keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
 }
 
-p {
+/* End animation pop effect */
+.end-animation {
+  animation: popEnd 0.6s ease-in-out;
+}
+
+@keyframes popEnd {
+  0% {
+    transform: scale(1);
+    background-color: transparent;
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: var(--green);
+  }
+  100% {
+    transform: scale(1);
+    background-color: transparent;
+  }
+}
+
+/* End page styles */
+#endPage {
+  text-align: center;
+  padding: 2rem;
+}
+
+#endPage h2 {
+  font-size: 2.5rem;
+  color: #27ae60; /* nice green */
+  margin-bottom: 1rem;
+}
+
+#endMessage {
   font-size: 1.2rem;
-  margin: 15px;
+  margin-bottom: 2rem;
+  color: #333;
 }
 
-button {
-  margin: 10px;
-  padding: 12px 24px;
-  background-color: #ff69b4;
-  border: 2px solid #ff1493;
+#restartBtn {
+  font-size: 1.1rem;
+  padding: 0.8rem 2rem;
+  background-color: #f39c12; /* orange */
+  border: none;
   border-radius: 10px;
   color: white;
-  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  transform: scale(1.05);
+#restartBtn:hover {
+  background-color: #d35400; /* darker orange */
 }
 
-img {
-  width: 280px;
-  max-width: 90%;
-  border-radius: 15px;
-  box-shadow: 0 0 12px #d87093;
-  margin: 20px auto;
+
+/* Dark mode styles */
+body.dark-mode {
+  background: linear-gradient(to bottom right, var(--bg-dark), var(--blue));
+  color: var(--text-dark);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+body.dark-mode .container {
+  background-color: rgba(18, 18, 18, 0.95);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode #sceneText {
+  color: var(--text-dark);
+}
+
+body.dark-mode .item-btn {
+  background: var(--green);
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.7);
+}
+
+body.dark-mode .item-btn:hover {
+  background: var(--orange);
+  box-shadow: 0 6px 12px rgba(243, 156, 18, 0.7);
+}
+
+body.dark-mode .choice-btn {
+  background: var(--yellow);
+  color: var(--text-dark);
+  box-shadow: 0 4px 10px rgba(245, 197, 24, 0.7);
+}
+
+body.dark-mode .choice-btn:hover {
+  background: var(--orange);
+  box-shadow: 0 6px 14px rgba(243, 156, 18, 0.9);
+}
+
+body.dark-mode #themeToggle {
+  background-color: var(--green);
+}
+
+body.dark-mode #themeToggle:hover {
+  background-color: var(--orange);
 }

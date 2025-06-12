@@ -1,72 +1,41 @@
 <!DOCTYPE html>
+
 <head>
-  <title> Castle Escape Adventure </title>
+
+  <title>Backpack Through Time</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1> Castle Escape Adventure </h1>
+  <div class="container">
+    <!-- Intro section with item choices -->
+    <div id="intro" class="centered">
+      <h1 id="introText">Pick an Item to Begin</h1>
+      <div id="items">
+        <button class="item-btn" data-item="scroll" aria-label="Ancient Scroll">Scroll</button>
+        <button class="item-btn" data-item="paintbrush" aria-label="Renaissance Paintbrush">Paintbrush</button>
+        <button class="item-btn" data-item="katana" aria-label="Samurai Katana">Katana</button>
+      </div>
+    </div>
 
-  <!-- START -->
-  <div id="start" class="section visible">
-    <p>You awaken in a velvet-draped dungeon. The castle above holds secrets. Can you escape?</p>
-    <img src="https://i.imgur.com/4kQ8fXW.jpg" alt="Dungeon Cell">
-    <button id="startBtn"> Sneak out</button>
+    <!-- Story section hidden initially, shown after picking item -->
+    <section id="storySection" class="hidden">
+      <h2 id="sceneTitle"></h2>
+      <div id="imageContainer">
+        <img id="sceneImage" src="" alt="Scene illustration" />
+      </div>
+      <p id="sceneText"></p>
+      <div id="choiceButtons"></div>
+    </section>
   </div>
+  <section id="endPage" class="hidden">
+  <h2>The End</h2>
+  <p id="endMessage"></p>
+  <button id="restartBtn">Restart Adventure</button>
+</section>
 
-  <!-- LAYER 1: Haunted Hall -->
-  <div id="hauntedHall" class="section">
-    <h2> Haunted Hall</h2>
-    <p id="hauntedText">Eerie laughter echoes in the darkness...</p>
-    <img src="https://i.imgur.com/M4XvOaY.jpg" alt="Haunted Corridor">
-    <button id="sneakGhostsBtn"> Tiptoe through</button>
-    <button id="talkGhostsBtn"> Talk to the ghost</button>
-  </div>
 
-  <!-- LAYER 2: Mirror Maze -->
-  <div id="mirrorMaze" class="section">
-    <h2> Mirror Maze</h2>
-    <p>You see hundreds of versions of yourself... one of them winks.</p>
-    <img src="https://i.imgur.com/7y6X1Zm.jpg" alt="Mirror Maze">
-    <button id="shatterMirrorBtn"> Break a mirror</button>
-    <button id="followWinkBtn"> Follow the wink</button>
-  </div>
-
-  <!-- LAYER 3: Candy Garden -->
-  <div id="candyGarden" class="section">
-    <h2> Enchanted Candy Garden</h2>
-    <p>Everything looks delicious... but is it safe?</p>
-    <img src="https://i.imgur.com/vPCE2Ji.jpg" alt="Candy Garden">
-    <button id="eatCandyBtn"> Eat the gumdrop</button>
-    <button id="ignoreCandyBtn"> Ignore and keep walking</button>
-  </div>
-
-  <!-- LAYER 4: Dragon Lair -->
-  <div id="dragonLair" class="section">
-    <h2> Sleeping Dragon</h2>
-    <p>A glittering path lies beneath a sleeping dragon.</p>
-    <img src="https://i.imgur.com/RJYF9vQ.jpg" alt="Dragon">
-    <button id="tiptoeDragonBtn"> Sneak past</button>
-    <button id="petDragonBtn"> Pet the dragon</button>
-  </div>
-
-  <!-- ENDINGS -->
-  <div id="freedomEnd" class="section">
-    <h2> Freedom!</h2>
-    <p>You escape into a pink sunrise. The world is yours!</p>
-    <img src="https://i.imgur.com/6Yj1K9v.jpg" alt="Forest">
-  </div>
-
-  <div id="treasureEnd" class="section">
-    <h2> Treasure Found!</h2>
-    <p>The dragon reveals a chest of magical charms and sweets.</p>
-    <img src="https://i.imgur.com/pvO7cro.jpg" alt="Treasure">
-  </div>
-
-  <div id="failEnd" class="section">
-    <h2> You Got Caught</h2>
-    <p>You’re captured by candy guards and taken back to the dungeon!</p>
-    <img src="https://i.imgur.com/FXkB0Yc.jpg" alt="Captured">
-  </div>
+  <!-- Theme toggle button -->
+  <button id="themeToggle" aria-label="Toggle Light and Dark Mode">Toggle Theme</button>
 
   <script src="script.js"></script>
 </body>
