@@ -195,12 +195,12 @@ let story = {
 
 //dont understand-used template
 
-// Clear choice buttons 
+// Clears out any existing buttons(choices) from the screen
 function clearChoices() {
   choiceButtons.innerHTML = '';
 }
 
-// choice buttons from previous scene's choices
+// creates clickable buttons for each choice in the scene
 function createChoiceButtons(choices) {
   clearChoices();
   choices.forEach(choice => {
@@ -235,7 +235,7 @@ function typeText(text, callback) {
   type();
 }
 
-// Show a scene given a key in the story object
+// displays the full scene, title, image, text, and choices
 function showScene(key) {
   currentScene = story[key];
   if (!currentScene) return;
@@ -258,7 +258,7 @@ function showScene(key) {
   });
 }
 
-// When user clicks an item, start story at corresponding scene
+// When user clicks an item, hides intro and start story at corresponding scene
 items.addEventListener('click', e => {
   if (e.target.classList.contains('item-btn')) {
     const item = e.target.dataset.item;
