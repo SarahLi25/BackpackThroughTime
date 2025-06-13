@@ -245,18 +245,22 @@ function showScene(key) {
   sceneImage.src = currentScene.image;
   sceneImage.alt = `Image for ${currentScene.title}`;
 
-  clearChoices();
-  typeText(currentScene.text, () => {
-    // Add choice buttons if available
-    if (currentScene.choices.length > 0) {
-      createChoiceButtons(currentScene.choices);
-    } else {
-      // Ending scene - highlight text briefly
-      sceneText.classList.add('end-animation');
-      setTimeout(() => sceneText.classList.remove('end-animation'), 700);
-    }
-  });
-}
+  clearChoices(); // removes choice buttons before
+typeText(currentScene.text, () => { //typing effect
+  // Add choice buttons 
+  if (currentScene.choices.length > 0) {
+    createChoiceButtons(currentScene.choices);
+  } else { //no more choices, move the ending
+    // End of story: show end screen after animation
+    sceneText.classList.add('end-animation');
+    setTimeout(() => {
+      sceneText.classList.remove('end-animation');
+      storySection.classList.add('hidden');
+      endPage.classList.remove('hidden');
+      endMessage.textContent = `"${currentScene.title}" has concluded. Want to explore another path?`;
+    }, 700); //short delay (use 700ms), remove the animation
+  }
+});
 
 // When user clicks an item, hides intro and start story at corresponding scene
 items.addEventListener('click', e => {
@@ -282,6 +286,23 @@ items.addEventListener('click', e => {
       showScene('egypt');
     }
   }
+});
+
+//  Restart Button
+restartBtn.addEventListener('click', () => {
+  // Hide end screen
+  endPage.classList.add('hidden');
+
+  // Reset story section and clear content
+  storySection.classList.add('hidden');
+  sceneTitle.textContent = '';
+  sceneImage.src = '';
+  sceneText.textContent = '';
+  clearChoices();
+
+  // Show intro again
+  introText.style.display = '';
+  items.style.display = '';
 });
 
 // Theme toggle button functionality
