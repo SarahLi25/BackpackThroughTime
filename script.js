@@ -17,6 +17,7 @@ let story = {
 
   // Starting scenes based on item choice
 
+// this is called a object based structure, if else did not work:(
   //egypt (scroll)
   egypt: {
     title: 'Ancient Egypt',
