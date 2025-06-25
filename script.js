@@ -261,6 +261,7 @@ typeText(currentScene.text, () => { //typing effect
     }, 700); //short delay (use 700ms), remove the animation
   }
 });
+}
 
 // When user clicks an item, hides intro and start story at corresponding scene
 items.addEventListener('click', e => {
